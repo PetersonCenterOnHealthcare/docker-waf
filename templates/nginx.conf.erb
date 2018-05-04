@@ -11,7 +11,8 @@ http {
     include       mime.types;
     default_type  application/octet-stream;
 
-    #access_log  logs/access.log  main;
+    access_log /proc/self/fd/1;
+    error_log /proc/self/fd/2;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -27,7 +28,6 @@ http {
 
         #charset koi8-r;
 
-        #access_log  logs/host.access.log  main;
 
 		# Enable ModSecurity
 		ModSecurityEnabled on;
