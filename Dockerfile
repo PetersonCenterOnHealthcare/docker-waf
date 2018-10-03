@@ -12,7 +12,7 @@ RUN /bin/bash -c "source /build.sh"
 ADD templates/bin /usr/local/bin
 ADD templates/nginx.conf.erb /usr/local/nginx/conf/nginx.conf.erb
 ADD modsec_includes.conf /usr/local/nginx/conf/modsec_includes.conf
-ADD templates/modsecurity.conf.erb /usr/local/nginx/conf/modsecurity.conf.erb
+ADD templates/modsecurity.conf /usr/local/nginx/conf/modsecurity.conf
 ADD crs-setup.conf /usr/local/nginx/conf/rules/crs-setup.conf
 
 CMD ["/usr/local/bin/nginx-wrapper"]

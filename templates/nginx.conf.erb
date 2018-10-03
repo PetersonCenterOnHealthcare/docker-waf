@@ -30,8 +30,8 @@ http {
 
 
 		# Enable ModSecurity
-		ModSecurityEnabled on;
-		ModSecurityConfig modsecurity.conf;
+		modsecurity on;
+        modsecurity_rules_file /usr/local/nginx/conf/modsecurity.conf;
 
 		resolver 8.8.8.8;
 		set $upstream_endpoint <%= ENV['INTERNAL_ENDPOINT'] %>;

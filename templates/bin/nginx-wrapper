@@ -8,8 +8,15 @@ export SECRULEENGINE
 : ${INTERNAL_ENDPOINT:?"Error: INTERNAL_ENDPOINT environment variable not set"}
 
 # Process ERB variables in Nginx configuration templates
+ln -s /usr/local/nginx/sbin/nginx /bin/nginx
+mkdir /usr/local/nginx/conf/sites-available 
+mkdir /usr/local/nginx/conf/sites-enabled 
+mkdir /usr/local/nginx/conf/ssl 
+mkdir /etc/nginx
+ln -s /usr/local/nginx/conf/ssl /etc/nginx/ssl
+cp /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.bak
 cd /usr/local/nginx/conf/ && erb nginx.conf.erb > nginx.conf
-cd /usr/local/nginx/conf/ && erb modsecurity.conf.erb > modsecurity.conf
+#cd /usr/local/nginx/conf/ && erb modsecurity.conf.erb > modsecurity.conf
 
 tail -F /var/log/modsec_audit.log &
 
