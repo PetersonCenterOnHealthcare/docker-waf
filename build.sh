@@ -32,6 +32,7 @@ make install
 #configure env
 ln -s /usr/local/nginx/sbin/nginx /bin/nginx
 mkdir -p /opt/modsecurity/var/audit/
+cp /usr/src/modsecurity/unicode.mapping /usr/local/nginx/conf/
 
 #install signature
 git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git /usr/src/owasp-modsecurity-crs
